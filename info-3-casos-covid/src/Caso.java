@@ -184,6 +184,15 @@ public class Caso {
 	public Date getUltima_actualizacion() {
 		return this.ultima_actualizacion;
 	}
+//muestra los datos del objeto	
+@Override
+public String toString() {
+	return "Caso{"+ id_evento_caso + " / "+ sexo+ " / "+ edad+ " "+ edad_años_meses+ " / "+ residencia_pais_nombre+ " / "+ 
+	residencia_provincia_nombre+ " / "+ residencia_departamento_nombre+ " / "+ carga_provincia_nombre+ " / "+
+	fecha_inicio_sintomas+ " / "+ fecha_apertura+ " / "+sepi_apertura+ " / "+ fecha_internacion+ " / "+ cuidado_intensivo+ " / "+
+	fecha_cui_intensivo+ " / "+fallecido+ " / "+ fecha_fallecimiento+ " / "+ asistencia_respiratoria_mecanica+ " / "+
+	carga_provincia_id+ " / "+ origen_financiamiento+ " / "+ clasificacion+ " / "+ clasificacion_resumen+ " / "+
+	residencia_provincia_id+ " / "+ fecha_diagnostico+ " / "+ residencia_departamento_id+ " / "+ ultima_actualizacion+'}';
 
    
 }
