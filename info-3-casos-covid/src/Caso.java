@@ -71,11 +71,9 @@ public class Caso {
 		return this.id_evento_caso;
 	}
 
-
 	public char getSexo() {
 		return this.sexo;
 	}
-
 
 	public int getEdad() {
 		return this.edad;
@@ -85,46 +83,37 @@ public class Caso {
 		return this.edad_años_meses;
 	}
 
-
 	public String getResidencia_pais_nombre() {
 		return this.residencia_pais_nombre;
 	}
-
 
 	public String getResidencia_provincia_nombre() {
 		return this.residencia_provincia_nombre;
 	}
 
-
 	public String getResidencia_departamento_nombre() {
 		return this.residencia_departamento_nombre;
 	}
-
 
 	public String getCarga_provincia_nombre() {
 		return this.carga_provincia_nombre;
 	}
 
-
 	public Date getFecha_inicio_sintomas() {
 		return this.fecha_inicio_sintomas;
 	}
-
 
 	public Date getFecha_apertura() {
 		return this.fecha_apertura;
 	}
 
-
 	public int getSepi_apertura() {
 		return this.sepi_apertura;
 	}
 
-
 	public Date getFecha_internacion() {
 		return this.fecha_internacion;
 	}
-
 
 	public String getCuidado_intensivo() {
 		return this.cuidado_intensivo;
@@ -134,16 +123,13 @@ public class Caso {
 		return this.fecha_cui_intensivo;
 	}
 
-
 	public String getFallecido() {
 		return this.fallecido;
 	}
 
-
 	public Date getFecha_fallecimiento() {
 		return this.fecha_fallecimiento;
 	}
-
 
 	public String getAsistencia_respiratoria_mecanica() {
 		return this.asistencia_respiratoria_mecanica;
@@ -152,7 +138,6 @@ public class Caso {
 	public int getCarga_provincia_id() {
 		return this.carga_provincia_id;
 	}
-
 
 	public String getOrigen_financiamiento() {
 		return this.origen_financiamiento;
@@ -166,11 +151,9 @@ public class Caso {
 		return this.clasificacion_resumen;
 	}
 
-
 	public int getResidencia_provincia_id() {
 		return this.residencia_provincia_id;
 	}
-
 
 	public Date getFecha_diagnostico() {
 		return this.fecha_diagnostico;
@@ -180,10 +163,11 @@ public class Caso {
 		return this.residencia_departamento_id;
 	}
 
-
 	public Date getUltima_actualizacion() {
 		return this.ultima_actualizacion;
 	}
+
+	
 //muestra los datos del objeto	
 @Override
 public String toString() {
