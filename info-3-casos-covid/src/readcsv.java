@@ -3,6 +3,7 @@
 import com.csvreader.CsvWriter;*/
 import java.util.Scanner;
 
+
 public class readcsv {
     public static void main(String[] args) throws Exception {
         int opcion;
@@ -16,20 +17,41 @@ public class readcsv {
             System.out.println("3) % de infectado por muestras");
             System.out.println("4) Cantidad de infectados por rango etario ( rango de 10 años)");
             System.out.println("5) Cantidad de muertes por rango etario ( rango de 10 años)");
-            System.out.println("6) Cerrar");
+            System.out.println("6) Cantidad de muertes por rango etario ( rango de 10 años)");
+            System.out.println("7) Cerrar");
 
             opcion = scanner.nextInt();
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Digite un caracter: ");
-                    // dato = scanner.nextLine();
+                    System.out.println("Cantidad total de muestras");
+                    
                     break;
 
+                case 2:
+                    System.out.println("");
+                    
+                    break;
+
+                case 4:
+                    System.out.println(" ");
+                    
+                    break;
+
+                case 5:
+                    System.out.println(" ");
+                    
+                    break; 
+
                 case 6:
+                    System.out.println(" ");
+                    
+                    break; 
+
+                case 7:
                     break;
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 }
 /*Información estadística:

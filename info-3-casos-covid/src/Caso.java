@@ -1,43 +1,49 @@
-import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 public class Caso {
     // variables
-    private long id_evento_caso;
-    private char sexo;
-    private int edad;
+    private String id_evento_caso;
+    private String sexo;
+    private String edad;
     private String edad_años_meses;
     private String residencia_pais_nombre;
     private String residencia_provincia_nombre;
     private String residencia_departamento_nombre;
     private String carga_provincia_nombre;
-    private Date fecha_inicio_sintomas;
-    private Date fecha_apertura;
-    private int sepi_apertura;
-    private Date fecha_internacion;
+    private String fecha_inicio_sintomas;
+    private String fecha_apertura;
+    private String sepi_apertura;
+    private String fecha_internacion;
     private String cuidado_intensivo;
-    private Date fecha_cui_intensivo;
+    private String fecha_cui_intensivo;
     private String fallecido;
-    private Date fecha_fallecimiento;
+    private String fecha_fallecimiento;
     private String asistencia_respiratoria_mecanica;
-    private int carga_provincia_id;
+    private String carga_provincia_id;
     private String origen_financiamiento;
     private String clasificacion;
     private String clasificacion_resumen;
-    private int residencia_provincia_id;
-    private Date fecha_diagnostico;
-    private int residencia_departamento_id;
-	private Date ultima_actualizacion;
+    private String residencia_provincia_id;
+    private String fecha_diagnostico;
+    private String residencia_departamento_id;
+	private String ultima_actualizacion;
 	
 
 
  // constructor
-    public Caso(long id_evento_caso, char sexo, int edad, String edad_años_meses, String residencia_pais_nombre,
+    public Caso(String id_evento_caso, String sexo, String edad, String edad_años_meses, String residencia_pais_nombre,
             String residencia_provincia_nombre, String residencia_departamento_nombre, String carga_provincia_nombre,
-            Date fecha_inicio_sintomas, Date fecha_apertura, int sepi_apertura, Date fecha_internacion,
-            String cuidado_intensivo, Date fecha_cui_intensivo, String fallecido, Date fecha_fallecimiento,
-            String asistencia_respiratoria_mecanica, int carga_provincia_id, String origen_financiamiento,
-            String clasificacion, String clasificacion_resumen, int residencia_provincia_id, Date fecha_diagnostico,
-            int residencia_departamento_id, Date ultima_actualizacion) {
+            String fecha_inicio_sintomas, String fecha_apertura, String sepi_apertura, String fecha_internacion,
+            String cuidado_intensivo, String fecha_cui_intensivo, String fallecido, String fecha_fallecimiento,
+            String asistencia_respiratoria_mecanica, String carga_provincia_id, String origen_financiamiento,
+            String clasificacion, String clasificacion_resumen, String residencia_provincia_id, String fecha_diagnostico,
+            String residencia_departamento_id, String ultima_actualizacion) {
 	
 		this.id_evento_caso = id_evento_caso;	
 		this.sexo = sexo;
@@ -67,15 +73,15 @@ public class Caso {
 	}
 	
 
-	public long getId_evento_caso() {
+	public String getId_evento_caso() {
 		return this.id_evento_caso;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return this.sexo;
 	}
 
-	public int getEdad() {
+	public String getEdad() {
 		return this.edad;
 	}
 
@@ -99,19 +105,19 @@ public class Caso {
 		return this.carga_provincia_nombre;
 	}
 
-	public Date getFecha_inicio_sintomas() {
+	public String getFecha_inicio_sintomas() {
 		return this.fecha_inicio_sintomas;
 	}
 
-	public Date getFecha_apertura() {
+	public String getFecha_apertura() {
 		return this.fecha_apertura;
 	}
 
-	public int getSepi_apertura() {
+	public String getSepi_apertura() {
 		return this.sepi_apertura;
 	}
 
-	public Date getFecha_internacion() {
+	public String getFecha_internacion() {
 		return this.fecha_internacion;
 	}
 
@@ -119,7 +125,7 @@ public class Caso {
 		return this.cuidado_intensivo;
 	}
 
-	public Date getFecha_cui_intensivo() {
+	public String getFecha_cui_intensivo() {
 		return this.fecha_cui_intensivo;
 	}
 
@@ -127,7 +133,7 @@ public class Caso {
 		return this.fallecido;
 	}
 
-	public Date getFecha_fallecimiento() {
+	public String  getFecha_fallecimiento() {
 		return this.fecha_fallecimiento;
 	}
 
@@ -135,7 +141,7 @@ public class Caso {
 		return this.asistencia_respiratoria_mecanica;
 	}
 
-	public int getCarga_provincia_id() {
+	public String getCarga_provincia_id() {
 		return this.carga_provincia_id;
 	}
 
@@ -151,26 +157,83 @@ public class Caso {
 		return this.clasificacion_resumen;
 	}
 
-	public int getResidencia_provincia_id() {
+	public String getResidencia_provincia_id() {
 		return this.residencia_provincia_id;
 	}
 
-	public Date getFecha_diagnostico() {
+	public String getFecha_diagnostico() {
 		return this.fecha_diagnostico;
 	}
 
-	public int getResidencia_departamento_id() {
+	public String getResidencia_departamento_id() {
 		return this.residencia_departamento_id;
 	}
 
-	public Date getUltima_actualizacion() {
+	public String getUltima_actualizacion() {
 		return this.ultima_actualizacion;
+	}
+
+	public List lectorcsv() throws FileNotFoundException, IOException 
+	{ 
+		
+		List casos = new ArrayList<>(); 
+
+		BufferedReader lectorcsv = new BufferedReader(new FileReader("Covid19Casos.txt.gz")); 
+		String line = lectorcsv.readLine();
+	
+		while ((line = lectorcsv.readLine()) != null && !line.isEmpty()) 
+		{ 
+
+			String[] tipo_dato = line.split(",");
+			Caso muestra = new Caso (id_evento_caso, sexo, edad, edad_años_meses, residencia_pais_nombre,
+			residencia_provincia_id, residencia_departamento_id, carga_provincia_nombre, fecha_inicio_sintomas,
+			fecha_apertura, sepi_apertura, fecha_internacion, cuidado_intensivo, fecha_cui_intensivo,
+			fallecido, fecha_fallecimiento, asistencia_respiratoria_mecanica, carga_provincia_id, 
+			origen_financiamiento, clasificacion, clasificacion_resumen, residencia_provincia_id,
+			fecha_diagnostico, residencia_departamento_id, ultima_actualizacion);
+	
+			
+			 
+			
+			id_evento_caso = tipo_dato[0];
+			sexo = tipo_dato[1];
+			edad = tipo_dato[2];
+			edad_años_meses = tipo_dato[3];
+			residencia_pais_nombre = tipo_dato[4];
+			residencia_provincia_id = tipo_dato[5];
+			residencia_departamento_id = tipo_dato[6];
+			carga_provincia_nombre= tipo_dato[7];
+			fecha_inicio_sintomas= tipo_dato[8];
+			fecha_apertura= tipo_dato[9];
+			sepi_apertura= tipo_dato[10];
+			fecha_internacion= tipo_dato[11];
+			cuidado_intensivo= tipo_dato[12];
+			fecha_cui_intensivo= tipo_dato[13];
+			fallecido= tipo_dato[14];
+			fecha_fallecimiento= tipo_dato[15];
+			asistencia_respiratoria_mecanica= tipo_dato[16];
+			carga_provincia_id= tipo_dato[17];
+			origen_financiamiento= tipo_dato[18];
+			clasificacion= tipo_dato[19];
+			clasificacion_resumen= tipo_dato[20];
+			residencia_provincia_id= tipo_dato[21];
+			fecha_diagnostico= tipo_dato[22];
+			residencia_departamento_id= tipo_dato[23];
+			ultima_actualizacion= tipo_dato[24];
+			
+			
+			casos.add(muestra);
+		} 
+		 	lectorcsv.close();
+		return casos; 
+	
 	}
 
 	
 //muestra los datos del objeto	
 @Override
-public String toString() {
+public String toString() 
+{
 	return "Caso{"+ id_evento_caso + " / "+ sexo+ " / "+ edad+ " "+ edad_años_meses+ " / "+ residencia_pais_nombre+ " / "+ 
 	residencia_provincia_nombre+ " / "+ residencia_departamento_nombre+ " / "+ carga_provincia_nombre+ " / "+
 	fecha_inicio_sintomas+ " / "+ fecha_apertura+ " / "+sepi_apertura+ " / "+ fecha_internacion+ " / "+ cuidado_intensivo+ " / "+
@@ -179,4 +242,5 @@ public String toString() {
 	residencia_provincia_id+ " / "+ fecha_diagnostico+ " / "+ residencia_departamento_id+ " / "+ ultima_actualizacion+'}';
 
    
+}
 }
